@@ -308,11 +308,11 @@ if __name__ == "__main__":
     # 传入地区获取天气信息
     region = config["region"]
     weather, temp, max_temp, min_temp, wind_dir, sunrise, sunset, category, pm2p5, proposal = get_weather(region)
-    note_ch = config["note_ch"]
+    note_ch=get_words()
+    
     note_en = config["note_en"]
-    if note_ch == "" and note_en == "":
+    if note_en == "":
         # 获取词霸每日金句
-        note_ch=get_words()
         note_en = get_ciba()
     chp = get_tianhang()
     
