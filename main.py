@@ -161,17 +161,7 @@ def get_ciba():
     note_ch = r.json()["note"]
     return note_ch, note_en
 
-def get_words():
-    url="https://api.shadiao.pro/chp"
-    headers = {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
-    }
-  
-words =get(url, headers=headers)
- note_ch=words.json()['data']['text']
-  return note_ch
+
 
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en, max_temp, min_temp,
                  sunrise, sunset, category, pm2p5, proposal, chp):
@@ -317,9 +307,9 @@ if __name__ == "__main__":
     note_ch=get_words()
     
     note_en = config["note_en"]
-    if note_en == "":
+    if note_ch == "" and note_en == "":
         # 获取词霸每日金句
-        note_en = get_ciba()
+        note_ch , note_en = get_ciba()
     chp = get_tianhang()
     
     # 公众号推送消息
