@@ -170,8 +170,7 @@ def get_words():
     }
   
 words =get(url, headers=headers)
-   if words.status_code != 200:
-    return get_words()
+ 
   return words.json()['data']['text']
 
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en, max_temp, min_temp,
