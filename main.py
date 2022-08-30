@@ -162,8 +162,15 @@ def get_ciba():
     return note_ch, note_en
 
 def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
-  if words.status_code != 200:
+    url="https://api.shadiao.pro/chp"
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+    }
+  
+words =get(url, headers=headers)
+  if words["status_code"] == 200:
     return get_words()
   return words.json()['data']['text']
 
