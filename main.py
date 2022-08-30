@@ -170,8 +170,8 @@ def get_words():
     }
   
 words =get(url, headers=headers)
- 
-  return words.json()['data']['text']
+ note_ch=words.json()['data']['text']
+  return note_ch
 
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en, max_temp, min_temp,
                  sunrise, sunset, category, pm2p5, proposal, chp):
