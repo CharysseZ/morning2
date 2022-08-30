@@ -170,7 +170,7 @@ def get_words():
     }
   
 words =get(url, headers=headers)
-  if words.status_code!= 200:
+   if words.status_code != 200:
     return get_words()
   return words.json()['data']['text']
 
